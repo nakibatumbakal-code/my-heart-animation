@@ -1,0 +1,75 @@
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>A Special Heart</title>
+
+    <style>
+        body {
+            margin: 0;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            background: #101020;
+            color: white;
+            font-family: Arial, sans-serif;
+            overflow: hidden;
+        }
+
+        .heart {
+            font-size: 160px;
+            color: #ff3366;
+            animation: heartbeat 1s infinite;
+            filter: drop-shadow(0 0 25px #ff3366);
+        }
+
+        @keyframes heartbeat {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.15); }
+        }
+
+        h1 {
+            font-size: 25px;
+            letter-spacing: 3px;
+            min-height: 35px;
+            text-align: center;
+        }
+
+        p {
+            color: #ff99bb;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="heart">♥</div>
+
+    <h1 id="message"></h1>
+
+    <p>A little message for you ❤️</p>
+
+    <script>
+        const message = "YOU ARE SPECIAL";
+        let index = 0;
+
+        function typeText() {
+            if (index < message.length) {
+                document.getElementById("message").textContent +=
+                    message[index];
+
+                index++;
+                setTimeout(typeText, 150);
+            }
+        }
+
+        setTimeout(typeText, 1000);
+    </script>
+
+</body>
+</html>
